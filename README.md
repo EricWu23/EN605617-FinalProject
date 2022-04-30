@@ -10,7 +10,7 @@ In this project, I
 5. normalized the pixel of raw gray scale image,which is between [0,255], to a number between [-1,1] by calling the custom cuda kernel from pytorch 
 
 I also compared timing among pixel normalizer function implemented in 
-1. pytorched called custom CUDA kernel, 
+1. pytorch called custom CUDA kernel, 
 2. pure pytorch tensor running on CPU, 
 3. pure pytorch sensor running on GPU.
 
