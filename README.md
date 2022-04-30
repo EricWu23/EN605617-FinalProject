@@ -24,4 +24,6 @@ The data can be downloaded from http://yann.lecun.com/exdb/mnist/.
 * [CUSTOM C++ AND CUDA EXTENSIONS](https://pytorch.org/tutorials/advanced/cpp_extension.html)
 * [MNIST Handwritten Digit Recognition in PyTorch](https://nextjournal.com/gkoehler/pytorch-mnist)
 * [Neural network in CUDA/C++](https://github.com/BobMcDear/Neural-Network-CUDA)
+* [pybind11 — Seamless operability between C++11 and Python](https://pybind11.readthedocs.io/en/stable/)
+* [PyTorch C++ API](https://pytorch.org/cppdocs/api/library_root.html)
 
