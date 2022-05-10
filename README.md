@@ -35,6 +35,9 @@ Then, I trained a Neural network using pytorch to do dignit recognition based on
   * then use the makefile in ./CPU to compile executable cpukernel 
   * and use makefile in ./GPU to compile executable gpukernel 
 
+## Future Work
+![image](https://user-images.githubusercontent.com/38193254/167555832-06e67684-4c3b-4831-b771-eaf7dd2f8446.png)
+
 
 ## References:
 * [Neural network in CUDA/C++](https://github.com/BobMcDear/Neural-Network-CUDA)
