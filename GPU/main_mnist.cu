@@ -70,12 +70,8 @@ int main(){
     //int n_hidden_2 = 512;
     Linear_GPU* lin1 = new Linear_GPU(bs, n_in, n_hidden_1);
     ReLU_GPU* relu1 = new ReLU_GPU(bs,n_hidden_1);
-    //Linear_GPU* lin2 = new Linear_GPU(bs, n_hidden_1, n_hidden_2);
-    //ReLU_GPU* relu2 = new ReLU_GPU(bs*n_hidden_2);
-    //Linear_GPU* lin3 = new Linear_GPU(bs, n_hidden_2, n_out);
-    //std::vector<Module*> layers = {lin1, relu1, lin2, relu2, lin3};
-    Linear_GPU* lin3 = new Linear_GPU(bs, n_hidden_1, n_out);
-    std::vector<Module*> layers = {lin1, relu1,lin3};
+    Linear_GPU* lin2 = new Linear_GPU(bs, n_hidden_1, n_out);
+    std::vector<Module*> layers = {lin1, relu1,lin2};
     Sequential_GPU seq(layers);
 
     /*----------------Training:-----------------------------------*/
@@ -99,7 +95,7 @@ int main(){
     float *inp_test, *targ_test;  
     cudaMallocManaged(&inp_test, tbs_test*n_in*sizeof(float));
     cudaMallocManaged(&targ_test, (tbs_test*n_out)*sizeof(float));
-
+/*
     // read in testing data
     begin = std::chrono::steady_clock::now();
     read_csv(inp_test, "../data/test_x.csv",tbs_test*n_in);
@@ -119,6 +115,7 @@ int main(){
     std::cout << "Test Loss: " <<testloss/tbs_test<< std::endl;
     end = std::chrono::steady_clock::now();
     std::cout << "Validation time: " << (std::chrono::duration_cast<std::chrono::microseconds>(end-begin).count())/1000000.0f << std::endl;
+*/
 
     /*-------------------------Clean up---------------------------*/
     cudaFree(inp_test);

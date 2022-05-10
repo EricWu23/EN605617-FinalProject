@@ -35,15 +35,10 @@ int main(){
     int bs=std::min(TRAING_BATCH_SIZE,tbs);
     int num_bs=tbs/bs;
     int n_hidden_1 = 512;
-    //int n_hidden_2 = 512;
     Linear_CPU* lin1 = new Linear_CPU(bs, n_in, n_hidden_1);
     ReLU_CPU* relu1 = new ReLU_CPU(bs,n_hidden_1);
-    //Linear_CPU* lin2 = new Linear_CPU(bs, n_hidden_1, n_hidden_2);
-    //ReLU_CPU* relu2 = new ReLU_CPU(bs*n_hidden_2);
-    //Linear_CPU* lin3 = new Linear_CPU(bs, n_hidden_2, n_out);
-    //std::vector<Module*> layers = {lin1, relu1, lin2, relu2, lin3};
-    Linear_CPU* lin3 = new Linear_CPU(bs, n_hidden_1, n_out);
-    std::vector<Module*> layers = {lin1, relu1,lin3};
+    Linear_CPU* lin2 = new Linear_CPU(bs, n_hidden_1, n_out);
+    std::vector<Module*> layers = {lin1, relu1,lin2};
     Sequential_CPU seq(layers);
 
     /*----------------Training:-----------------------------------*/
@@ -65,6 +60,7 @@ int main(){
 
     // read in testing data
     float *inp_test = new float[tbs_test*n_in], *targ_test = new float[tbs_test*n_out]; 
+/*   
     begin = std::chrono::steady_clock::now();
     read_csv(inp_test, "../data/test_x.csv",tbs_test*n_in);
     read_csv(targ_test, "../data/test_y.csv",tbs_test*n_out);
@@ -83,6 +79,7 @@ int main(){
     std::cout << "Test Loss:" <<testloss/tbs_test<< std::endl;
     end = std::chrono::steady_clock::now();
     std::cout << "Validation time: " << (std::chrono::duration_cast<std::chrono::microseconds>(end-begin).count())/1000000.0f << std::endl;
+ */   
     /*-------------------------Clean up---------------------------*/
     delete[] inp_test;
     delete[] targ_test;

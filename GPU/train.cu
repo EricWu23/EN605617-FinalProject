@@ -4,6 +4,7 @@
 #include "train.h"
 #include "../utils/utils.h"
 
+#define ENABLE_LOG 1
 void debug(float *arrayname,int n_sample,int sz_out){
 
  if ((n_sample+9)<sz_out){
@@ -44,7 +45,7 @@ void train_gpu(Sequential_GPU & seq, float *inp, float *targ, int bs, int n_in,i
     /* clean up temporary memory at the end of each batch*/
     seq.free();
 
-    if(batch_idx%log_interval==0){
+    if(batch_idx%log_interval==0 && ENABLE_LOG){
       seq.forward(cp_inp, out);
       mse._forward(seq.layers.back()->out, targ_shft);// compute the actual loss
       seq.free();

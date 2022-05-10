@@ -14,9 +14,6 @@
 void mse_forward_cpu(float *inp, float *out, int sz_out,float* const loss){
     for (int i=0; i<sz_out; i++){
         loss[0] += (inp[i]-out[i])*(inp[i]-out[i])/sz_out;// Average Square error
-        //std::cout << " pred: " << inp[i];
-        //std::cout << " label:" << out[i];
-        //if (i%10==1){printf("\n");} 
     }
 }
 
@@ -41,7 +38,6 @@ void mse_forward_cpu(float *inp, float *out, int sz_out,float* const loss){
 */
 void mse_backward_cpu(float *inp, float *out, int sz_out){
     for (int i=0; i<sz_out; i++){
-               //std::cout << "Yujiang: " << i << std::endl;
         inp[i] = 2*(inp[i]-out[i])/sz_out;//dJ/dY_hat
     }
 }

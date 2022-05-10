@@ -18,6 +18,7 @@
 
 
 */
+#define ENABLE_LOG 1
 
 void train_cpu(Sequential_CPU & seq, float *inp, float *targ, int bs, int n_in, int n_out, int batch_idx,int epoch_idx,int log_interval,int tbs){
     
@@ -37,7 +38,7 @@ void train_cpu(Sequential_CPU & seq, float *inp, float *targ, int bs, int n_in, 
     seq.free();
    
    /*----------------Loss reporting----------------------*/
-    if(batch_idx%log_interval==0){
+    if(batch_idx%log_interval==0 && ENABLE_LOG){
       seq.forward(inp_shift, out);
       mse._forward(seq.layers.back()->out, targ_shft);// compute the actual loss
       seq.free();
