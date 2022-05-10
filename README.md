@@ -1,6 +1,8 @@
 # EN605617-FinalProject
 Yujiang's final project of the course introduction to GPU programming at JHU
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gYgdFWtw-68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # Project Description
 In this project, I explore how to take advantage of CUDA for data preprocessing and Neural Network training.
 ## For the data preprocessing, I
